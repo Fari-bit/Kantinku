@@ -332,7 +332,7 @@
         <div class="row align-items-center gy-5">
             <div class="col-lg-6">
                 <div class="hero-badge">
-                    <span>🎉</span> Platform Kantin Online terbaik
+                    <span>🎉</span> Platform Kantin Online Terbaik
                 </div>
                 <h1>Pesan Makanan Kantin <span class="highlight">Lebih Mudaah</span> & Tanpa Antri</h1>
                 <p>Pesan makanan & minuman dari berbagai warung kantin sekolah langsung dari HP. Bayar lebih mudhhah, tinggal ambil!</p>
