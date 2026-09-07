@@ -93,12 +93,11 @@ class MenuController extends Controller
     public function destroy(Menu $menu)
     {
         $this->authorize('delete', $menu);
-        if ($menu->foto) {
-            Storage::disk('public')->delete($menu->foto);
-        }
+        // Soft delete: menu dipindahkan ke Recycle Bin, foto TIDAK dihapus
+        // dulu supaya bisa dipulihkan (restore) secara utuh.
         $menu->delete();
         return redirect()->route('penjual.menu.index')
-            ->with('success', 'Menu berhasil dihapus!');
+            ->with('success', 'Menu dipindahkan ke Recycle Bin!');
     }
 
     public function toggleTersedia(Menu $menu)

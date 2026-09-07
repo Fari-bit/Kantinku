@@ -22,6 +22,9 @@
 <a href="{{ route('admin.siswa.index') }}" class="sidebar-link {{ request()->routeIs('admin.siswa.*') ? 'active' : '' }}">
     <i class="bi bi-people"></i>Siswa
 </a>
+<a href="{{ route('admin.recycle-bin.index') }}" class="sidebar-link {{ request()->routeIs('admin.recycle-bin.*') ? 'active' : '' }}">
+    <i class="bi bi-trash3"></i>Recycle Bin
+</a>
 
 <span class="nav-section-label">Laporan</span>
 <a href="{{ route('admin.laporan.index') }}" class="sidebar-link {{ request()->routeIs('admin.laporan.*') ? 'active' : '' }}">

@@ -85,7 +85,8 @@ class ProfileController extends Controller
         $user = auth()->user();
         auth()->logout();
 
-        if ($user->avatar) Storage::disk('public')->delete($user->avatar);
+        // Soft delete: akun dipindahkan ke Recycle Bin (bisa dipulihkan
+        // admin) — avatar tidak langsung dihapus.
         $user->delete();
 
         $request->session()->invalidate();

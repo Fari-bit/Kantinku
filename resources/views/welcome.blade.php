@@ -335,7 +335,7 @@
                     <span>🎉</span> Platform Kantin Online Terbaik
                 </div>
                 <h1>Pesan Makanan Kantin <span class="highlight">Lebih Mudaah</span> & Tanpa Antri</h1>
-                <p>Pesan makanan & minuman dari berbagai warung kantin sekolah langsung dari HP. Bayar lebih mudah, tinggal ambil!</p>
+                <p>Pesan makanan & minuman dari berbagai warung kantin sekolah langsung dari HP. Bayar lebih mudhhah, tinggal ambil!</p>
                 <div class="hero-actions">
                     @auth
                         <a href="{{ route(auth()->user()->role . '.dashboard') }}" class="btn-hero-primary">
