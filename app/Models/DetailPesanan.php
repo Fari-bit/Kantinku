@@ -25,6 +25,8 @@ class DetailPesanan extends Model
 
     public function menu()
     {
-        return $this->belongsTo(Menu::class);
+        // withTrashed(): detail pesanan lama tetap harus bisa menampilkan
+        // info menu meskipun menunya sudah dipindah ke Recycle Bin.
+        return $this->belongsTo(Menu::class)->withTrashed();
     }
 }
