@@ -25,12 +25,14 @@ class Pesanan extends Model
     /* ── Relationships ── */
     public function siswa()
     {
-        return $this->belongsTo(User::class, 'siswa_id');
+        // withTrashed(): riwayat pesanan tetap harus bisa menampilkan
+        // nama siswa meskipun akunnya sudah dipindah ke Recycle Bin.
+        return $this->belongsTo(User::class, 'siswa_id')->withTrashed();
     }
 
     public function penjual()
     {
-        return $this->belongsTo(User::class, 'penjual_id');
+        return $this->belongsTo(User::class, 'penjual_id')->withTrashed();
     }
 
     public function details()

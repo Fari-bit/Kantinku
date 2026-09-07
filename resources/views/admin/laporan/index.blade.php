@@ -9,6 +9,7 @@
 <a href="{{ route('admin.penjual.index') }}" class="sidebar-link"><i class="bi bi-shop"></i>Penjual</a>
 <a href="{{ route('admin.penjual.pendaftaran') }}" class="sidebar-link"><i class="bi bi-person-check"></i>Pendaftaran Penjual</a>
 <a href="{{ route('admin.siswa.index') }}" class="sidebar-link"><i class="bi bi-people"></i>Siswa</a>
+<a href="{{ route('admin.recycle-bin.index') }}" class="sidebar-link"><i class="bi bi-trash3"></i>Recycle Bin</a>
 <span class="nav-section-label">Laporan</span>
 <a href="{{ route('admin.laporan.index') }}" class="sidebar-link active"><i class="bi bi-bar-chart-fill"></i>Laporan</a>
 @endsection

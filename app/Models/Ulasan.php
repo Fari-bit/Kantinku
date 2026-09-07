@@ -14,7 +14,9 @@ class Ulasan extends Model
 
     public function siswa()
     {
-        return $this->belongsTo(User::class, 'siswa_id');
+        // withTrashed(): ulasan tetap menampilkan nama siswa meskipun
+        // akunnya sudah dipindah ke Recycle Bin.
+        return $this->belongsTo(User::class, 'siswa_id')->withTrashed();
     }
 
     public function pesanan()
@@ -24,7 +26,7 @@ class Ulasan extends Model
 
     public function penjual()
     {
-        return $this->belongsTo(User::class, 'penjual_id');
+        return $this->belongsTo(User::class, 'penjual_id')->withTrashed();
     }
 
     public function getStarAttribute(): string

@@ -34,8 +34,9 @@ class SiswaController extends Controller
 
     public function destroy(User $siswa)
     {
+        // Soft delete: akun siswa dipindahkan ke Recycle Bin dulu.
         $siswa->delete();
         return redirect()->route('admin.siswa.index')
-            ->with('success', 'Akun siswa berhasil dihapus.');
+            ->with('success', 'Akun siswa dipindahkan ke Recycle Bin.');
     }
 }
