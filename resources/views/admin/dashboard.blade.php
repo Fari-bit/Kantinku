@@ -22,12 +22,21 @@
 <a href="{{ route('admin.siswa.index') }}" class="sidebar-link {{ request()->routeIs('admin.siswa.*') ? 'active' : '' }}">
     <i class="bi bi-people"></i>Siswa
 </a>
+<a href="{{ route('admin.recycle-bin.index') }}" class="sidebar-link {{ request()->routeIs('admin.recycle-bin.*') ? 'active' : '' }}">
+    <i class="bi bi-trash3"></i>Recycle Bin
+</a>
 
 <span class="nav-section-label">Laporan</span>
 <a href="{{ route('admin.laporan.index') }}" class="sidebar-link {{ request()->routeIs('admin.laporan.*') ? 'active' : '' }}">
     <i class="bi bi-bar-chart-fill"></i>Laporan & Statistik
 </a>
+
+<span class="nav-section-label">Backup</span>
+<a href="{{ route('admin.backup.index') }}" class="sidebar-link {{ request()->routeIs('admin.backup.*') ? 'active' : '' }}">
+    <i class="bi bi-database-fill-down"></i>Backup Database
+</a>
 @endsection
+
 
 @section('content')
 {{-- Stats --}}

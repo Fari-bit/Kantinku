@@ -135,12 +135,11 @@ class PenjualController extends Controller
 
     public function destroy(User $penjual)
     {
-        if ($penjual->penjualProfile?->foto_warung) {
-            Storage::disk('public')->delete($penjual->penjualProfile->foto_warung);
-        }
+        // Soft delete: akun penjual dipindahkan ke Recycle Bin dulu,
+        // foto warung TIDAK langsung dihapus supaya bisa dipulihkan.
         $penjual->delete();
         return redirect()->route('admin.penjual.index')
-            ->with('success', 'Penjual berhasil dihapus!');
+            ->with('success', 'Penjual dipindahkan ke Recycle Bin!');
     }
 
     /* ── Pendaftaran ── */

@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Menu extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'penjual_id', 'nama', 'deskripsi', 'harga',
@@ -23,7 +24,9 @@ class Menu extends Model
 
     public function penjual()
     {
-        return $this->belongsTo(User::class, 'penjual_id');
+        // withTrashed(): detail/riwayat menu tetap bisa menampilkan nama
+        // penjual meskipun akunnya sudah dipindah ke Recycle Bin.
+        return $this->belongsTo(User::class, 'penjual_id')->withTrashed();
     }
 
     public function detailPesanan()
@@ -51,6 +54,12 @@ class Menu extends Model
 
     public function scopeTersedia($query)
     {
-        return $query->where('tersedia', true)->where('stok', '>', 0);
+        // whereHas('penjual', ...withoutTrashed()) memastikan menu milik
+        // penjual yang akunnya sudah dipindah ke Recycle Bin tidak lagi
+        // muncul untuk dipesan siswa, meskipun relasi penjual() di atas
+        // pakai withTrashed() (untuk keperluan riwayat).
+        return $query->where('tersedia', true)
+            ->where('stok', '>', 0)
+            ->whereHas('penjual', fn ($q) => $q->withoutTrashed());
     }
 }

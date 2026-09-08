@@ -12,6 +12,7 @@
 <span class="nav-section-label">Menu</span>
 <a href="{{ route('penjual.menu.index') }}" class="sidebar-link"><i class="bi bi-grid-3x3-gap"></i>Daftar Menu</a>
 <a href="{{ route('penjual.menu.create') }}" class="sidebar-link"><i class="bi bi-plus-circle"></i>Tambah Menu</a>
+<a href="{{ route('penjual.recycle-bin.index') }}" class="sidebar-link {{ request()->routeIs('penjual.recycle-bin.*') ? 'active' : '' }}"><i class="bi bi-trash3"></i>Recycle Bin</a>
 @endsection
 
 @section('content')

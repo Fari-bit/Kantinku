@@ -27,6 +27,9 @@
 <a href="{{ route('penjual.menu.create') }}" class="sidebar-link">
     <i class="bi bi-plus-circle"></i>Tambah Menu
 </a>
+<a href="{{ route('penjual.recycle-bin.index') }}" class="sidebar-link {{ request()->routeIs('penjual.recycle-bin.*') ? 'active' : '' }}">
+    <i class="bi bi-trash3"></i>Recycle Bin
+</a>
 
 @endsection
 
